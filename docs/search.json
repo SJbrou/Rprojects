@@ -1,0 +1,78 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "R projects",
+    "section": "",
+    "text": "A collection of my projects in R.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "Manuscripts/Environmental impact/index.html",
+    "href": "Manuscripts/Environmental impact/index.html",
+    "title": "Environmental impact of utilities",
+    "section": "",
+    "text": "Utility consumption\nAssuming the following usage pattern:\nFigure 2.1: Assumed utility usage. Note that energy meters measure net flow, and thus gross solar and power might differ.",
+    "crumbs": [
+      "Personal",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental impact of home insulation</span>"
+    ]
+  },
+  {
+    "objectID": "Manuscripts/Environmental impact/index.html#utility-consumption",
+    "href": "Manuscripts/Environmental impact/index.html#utility-consumption",
+    "title": "Environmental impact of utilities",
+    "section": "",
+    "text": "Details\n\n\n\n\n\n\nDate\nGas (m³)\nElectricity Usage (kWh)\nSolar (kWh)\n\n\n\n\n2025-01-01\n126.0\n180.0\n40.6\n\n\n2024-12-01\n107.0\n202.0\n15.4\n\n\n2024-11-01\n86.9\n201.0\n58.4\n\n\n2024-10-01\n33.8\n153.0\n123.0\n\n\n2024-09-01\n8.2\n120.0\n191.0\n\n\n2024-08-01\n8.1\n102.0\n286.0\n\n\n2024-07-01\n9.2\n91.5\n292.0\n\n\n2024-06-01\n9.7\n115.0\n264.0\n\n\n2024-05-01\n7.9\n131.0\n300.0\n\n\n2024-04-01\n42.8\n141.0\n209.0\n\n\n2024-03-01\n60.9\n147.0\n155.0\n\n\n2024-02-01\n116.0\n236.0\n77.0\n\n\n2024-01-01\n162.0\n258.0\n32.0\n\n\n2023-12-01\n144.0\n232.0\n38.0\n\n\n2023-11-01\n41.0\n182.0\n67.0\n\n\n2023-10-01\n14.0\n124.0\n113.0\n\n\n2023-09-01\n7.0\n72.0\n243.0\n\n\n2023-08-01\n10.0\n57.0\n286.0\n\n\n2023-07-01\n17.0\n126.0\n266.0\n\n\n2023-06-01\n20.0\n101.0\n364.0\n\n\n2023-05-01\n33.0\n116.0\n320.0\n\n\n2023-04-01\n77.0\n161.0\n232.0\n\n\n2023-03-01\n124.0\n216.0\n135.0\n\n\n2023-02-01\n116.0\n236.0\n77.0\n\n\n2023-01-01\n162.0\n258.0\n32.0\n\n\n2022-12-01\n130.0\n232.0\n38.0\n\n\n2022-11-01\n41.0\n182.0\n67.0\n\n\n2022-10-01\n24.0\n197.0\n120.0\n\n\n2022-09-01\n20.0\n158.0\n195.0\n\n\n2022-08-01\n12.0\n136.0\n319.0\n\n\n2022-07-01\n17.0\n109.0\n301.0\n\n\n2022-06-01\n24.0\n130.0\n310.0\n\n\n2022-05-01\n34.0\n116.0\n325.0\n\n\n2022-04-01\n65.0\n136.0\n276.0\n\n\n2022-03-01\n85.0\n183.0\n253.0\n\n\n2022-02-01\n126.0\n229.0\n92.0\n\n\n2022-01-01\n141.0\n282.0\n27.0",
+    "crumbs": [
+      "Personal",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental impact of home insulation</span>"
+    ]
+  },
+  {
+    "objectID": "Manuscripts/Environmental impact/index.html#emissions-of-energy-production",
+    "href": "Manuscripts/Environmental impact/index.html#emissions-of-energy-production",
+    "title": "Environmental impact of utilities",
+    "section": "Emissions of energy production",
+    "text": "Emissions of energy production\nTo quantify and compare the warming effects of different kind of emissions, the IPPC proposes using the Global Warming Potential (GWP), which can be used to express the warming effect of different emissions to that of CO₂. To calculate our total emissions, we must first determine the emissions caused by the energy production.\n\nElectricity\nThe emissions of electricity production depends on the source of the energy, which changes minute-by-minute. During day, a lot of green solar power is generated, and during peaks, gas turbines kick in. Exact information on the current national energy mix is publicly available. Ember-energy calculates the CO₂ emissions based on the energy mix, and has an API (email required) which provides the following numbers:\nSee also: https://www.cbs.nl/-/media/_excel/2023/06/1-co2-emissie-energieverbruik-rendementen-elektriciteit-2021.xls\n\n\n\n\n\n\n\n\nFigure 2.2: CO₂ emissions of the dutch energy production over time\n\n\n\n\n\nTo calculate the emissions caused by our energy consumption, we should account for the differing CO₂ emissions as follows:\n\\[\n\\text{CO}_2  = \\sum_{i=1}^{n} E_i \\times F_i\n\\] With \\(\\text{CO}_2\\) is the total produced CO₂ in grams,\n\\(E_i\\) the electricity usage for month \\(i\\) in kWh,\n\\(F_i\\) the emissions intensity in \\(g CO₂/kWh\\) for that specific month \\(i\\).\n\n\nGas\nCalculating the exact emissions caused by gas production is somewhat more complex as gas distributors measure the gas-usage as volume (m³) which is dependent on the temperature, pressure and gas mix, all of which are subject to change. Gas distributors solve this by multiply the measured volume with a correction value to determine the caloric value of the consumed gas (also see wobbe index). These corrections can be found on the final invoice.\nThe Netherlands Enterprise Agency (RVO) has calculated the emission factor for natural gas to be 56.34 kg CO₂ per GJ of energy. This only includes the emissions caused by burning the gas, not from producing it. The exact number differs by ±2% per year due to differences in the national gas mix, for instance through higher LNG imports.\nThe CBS reports that 1 GJ of natural gas corresponds to 31.6 m³, thus we can calculate the emissions per m³ as follows:\n\\[\n\\frac{56.34 \\text{ kg}}{\\text{GJ}}\n\\]\nSince\n\\[\n1 \\text{ GJ} = 31.6 \\text{ m}^3\n\\] we can compute:\n\\[\n\\frac{56.34}{31.6} \\text{ kg/m}^3\n\\]\nwhich simplifies to:\n\\[\n1.78 \\text{ kg CO}_2 \\text{ per m}^3\n\\]\nAs the deviations for the emissions of the gas mix are ~2%, we simplify the calculation by not accounting for them.",
+    "crumbs": [
+      "Personal",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental impact of home insulation</span>"
+    ]
+  },
+  {
+    "objectID": "Manuscripts/Environmental impact/index.html#calculations",
+    "href": "Manuscripts/Environmental impact/index.html#calculations",
+    "title": "Environmental impact of utilities",
+    "section": "Calculations",
+    "text": "Calculations\nFrom the emission factors per energy type the final formula can be determined:\n\\[\n\\text{CO}_2 = \\left( \\sum_{i=1}^{n} E_i \\times F_i \\right) + \\left( G \\times 1,78 \\right)\n\\] With \\(\\text{CO}_2\\) as the total produced CO₂ in grams,\n\\(E_i\\) the electricity usage for month \\(i\\) in kWh,\n\\(F_i\\) the emissions intensity in \\(kg CO₂/kWh\\) for that specific month \\(i\\). \\(G\\) the total gas usage in m³\nPlugging our usage data into this formula gives us the following emissions:\n\n\n\n\n\n\n\n\nFigure 2.3: Monthly CO₂ Emissions from Energy and Gas\n\n\n\n\n\n\n\n\n\n\nyear\nGas emissions (kg CO₂)\nElectricity emissions (kg CO₂)\nTotal emissions (kg CO₂)\n\n\n\n\n2022\n1279.82\n721.12\n2000.94\n\n\n2023\n1361.70\n551.89\n1913.59\n\n\n2024\n970.99\n452.84\n1423.83\n\n\n\n\n\n\n\n\n\nDetails\n\n\n\n\n\n\ndate\nElectricity\nGas\ntotal\nyear\n\n\n\n\n2024-11-01\n68.62542\n154.682\n223.30742\n2024\n\n\n2024-10-01\n48.07719\n60.164\n108.24119\n2024\n\n\n2024-09-01\n30.03240\n14.596\n44.62840\n2024\n\n\n2024-08-01\n23.54670\n14.418\n37.96470\n2024\n\n\n2024-07-01\n18.37869\n16.376\n34.75469\n2024\n\n\n2024-06-01\n23.69920\n17.266\n40.96520\n2024\n\n\n2024-05-01\n31.56969\n14.062\n45.63169\n2024\n\n\n2024-04-01\n29.12778\n76.184\n105.31178\n2024\n\n\n2024-03-01\n40.34709\n108.402\n148.74909\n2024\n\n\n2024-02-01\n63.42028\n206.480\n269.90028\n2024\n\n\n2024-01-01\n76.01712\n288.360\n364.37712\n2024\n\n\n2023-12-01\n65.73720\n256.320\n322.05720\n2023\n\n\n2023-11-01\n51.36404\n72.980\n124.34404\n2023\n\n\n2023-10-01\n34.19300\n24.920\n59.11300\n2023\n\n\n2023-09-01\n20.16000\n12.460\n32.62000\n2023\n\n\n2023-08-01\n14.96307\n17.800\n32.76307\n2023\n\n\n2023-07-01\n26.62884\n30.260\n56.88884\n2023\n\n\n2023-06-01\n22.32100\n35.600\n57.92100\n2023\n\n\n2023-05-01\n27.99544\n58.740\n86.73544\n2023\n\n\n2023-04-01\n48.38694\n137.060\n185.44694\n2023\n\n\n2023-03-01\n68.77440\n220.720\n289.49440\n2023\n\n\n2023-02-01\n85.97480\n206.480\n292.45480\n2023\n\n\n2023-01-01\n85.39542\n288.360\n373.75542\n2023\n\n\n2022-12-01\n89.38264\n231.400\n320.78264\n2022\n\n\n2022-11-01\n58.34738\n72.980\n131.32738\n2022\n\n\n2022-10-01\n67.56115\n42.720\n110.28115\n2022\n\n\n2022-09-01\n60.91374\n35.600\n96.51374\n2022\n\n\n2022-08-01\n48.43504\n21.360\n69.79504\n2022\n\n\n2022-07-01\n37.03166\n30.260\n67.29166\n2022\n\n\n2022-06-01\n42.82070\n42.720\n85.54070\n2022\n\n\n2022-05-01\n32.15056\n60.520\n92.67056\n2022\n\n\n2022-04-01\n42.86040\n115.700\n158.56040\n2022\n\n\n2022-03-01\n66.65775\n151.300\n217.95775\n2022\n\n\n2022-02-01\n66.27718\n224.280\n290.55718\n2022\n\n\n2022-01-01\n108.68562\n250.980\n359.66562\n2022\n\n\n\n\n\n\n\n\nIf real estate occupancy rate, area or any other measure is known, calculating the carbon footprint per person, workspace or area is trivial.",
+    "crumbs": [
+      "Personal",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental impact of home insulation</span>"
+    ]
+  },
+  {
+    "objectID": "Manuscripts/Environmental impact/index.html#concerns",
+    "href": "Manuscripts/Environmental impact/index.html#concerns",
+    "title": "Environmental impact of utilities",
+    "section": "Concerns",
+    "text": "Concerns\nClearly, the current calculations only accounts for the direct emissions caused by burning gas, or from producing electricity. (scope 1&2 emissions). Producing and transporting gas and electricity also has a significant impact on the environment.\nFurthermore, solar panels return electricity into the grid. How should they be accounted for?",
+    "crumbs": [
+      "Personal",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental impact of home insulation</span>"
+    ]
+  },
+  {
+    "objectID": "SCDA.html",
+    "href": "SCDA.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "University assignments",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Supply Chain Data Analytics paper</span>"
+    ]
+  }
+]
